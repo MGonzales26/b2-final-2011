@@ -13,7 +13,7 @@
     <h4>Adult Passengers:</h4>
     <% @flight.adult_passengers.each do |passenger| %>
       <div id="passenger-<%= passenger.id %>">
-        <p><%= passenger.name %></p>
+        <p><%= passenger.name %> <%= button_to "Remove Passenger", manifest_path(@flight, passenger), method: :delete, local: true %></p>
       </div>
     <% end %>
     <h3>Average Adult Passenger age: <%= @flight.average_adult_passenger_age.round(2) %></h3>

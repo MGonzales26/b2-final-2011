@@ -35,7 +35,6 @@ RSpec.describe "Flight Index Page" do
         expect(page).to have_content(@flight4.departure_city)
         expect(page).to have_content(@flight4.arrival_city)
       end
-      save_and_open_page
     end
     
     it "lists flights in alphabetical order by departure city (A - Z)" do

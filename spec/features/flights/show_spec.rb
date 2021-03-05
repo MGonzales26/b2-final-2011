@@ -54,15 +54,15 @@ RSpec.describe "Flight Show Page" do
       visit flight_path(@flight1)
       
       within("#passenger-#{@passenger1.id}") do
-        expect(page).to have_button("Remove passenger")
+        expect(page).to have_button("Remove Passenger")
       end
       
       within("#passenger-#{@passenger2.id}") do
-        expect(page).to have_button("Remove passenger")
+        expect(page).to have_button("Remove Passenger")
       end
       
       within("#passenger-#{@passenger3.id}") do
-        expect(page).to have_button("Remove passenger")
+        expect(page).to have_button("Remove Passenger")
       end      
     end
     
@@ -71,14 +71,13 @@ RSpec.describe "Flight Show Page" do
         visit flight_path(@flight1)
         
         within("#passenger-#{@passenger1.id}") do
-          click_button("Remove passenger")
+          click_button("Remove Passenger")
           expect(current_path).to eq(flight_path(@flight1))
         end
         
         within("#passenger-info") do
           expect(page).to_not have_content(@passenger1.name)
         end
-        # save_and_open_page
       end
     end
   end
