@@ -1,0 +1,15 @@
+<h1>All Flights</h1>
+
+<body>
+  <section id="all-flights">
+    <% @flights.flights_alphabetically.each do |flight| %>
+      <div id="flight-<%= flight.id %>">
+        <h2>Flight #<%= flight.number %></h2>
+        <p>
+          Departure City: <%= flight.departure_city %><br>
+          Arrival City: <%= flight.arrival_city %>
+        </p>
+      </div>
+    <% end %>
+  </section>
+</body>
