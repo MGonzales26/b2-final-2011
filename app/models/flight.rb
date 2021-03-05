@@ -7,6 +7,15 @@ class Flight < ApplicationRecord
     order(departure_city: :asc)
   end
 
+  def self.passenger_count_order
+    # require 'pry'; binding.pry
+    joins(:passengers)
+    .select('flights.*, count(passengers.id) as passenger_count')
+    .group('flights.id')
+    .order(passenger_count: :desc)
+    .order(departure_city: :asc)
+  end
+
   def adult_passengers
     passengers.where('age >= ?', 18)
   end

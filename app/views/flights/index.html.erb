@@ -2,7 +2,7 @@
 
 <body>
   <section id="all-flights">
-    <% @flights.flights_alphabetically.each do |flight| %>
+    <% @flights.passenger_count_order.each do |flight| %>
       <div id="flight-<%= flight.id %>">
         <h2>Flight #<%= flight.number %></h2>
         <p>
