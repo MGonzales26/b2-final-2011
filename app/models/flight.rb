@@ -8,12 +8,10 @@ class Flight < ApplicationRecord
   end
 
   def self.passenger_count_order
-    # require 'pry'; binding.pry
     joins(:passengers)
     .select('flights.*, count(passengers.id) as passenger_count')
     .group('flights.id')
-    .order(passenger_count: :desc)
-    .order(departure_city: :asc)
+    .order("passenger_count DESC, departure_city ASC")
   end
 
   def adult_passengers

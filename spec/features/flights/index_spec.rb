@@ -42,13 +42,8 @@ RSpec.describe "Flight Index Page" do
     end
     
     it "lists flights in alphabetical order by departure city (A - Z)" do
-      passenger7 = @flight1.passengers.create(name: "Elon Musk", age: 49)
-      passenger1 = @flight2.passengers.create(name: "Larry", age: 28)
-      passenger4 = @flight3.passengers.create(name: "Shirley Temple", age: 8)
-      passenger8 = @flight4.passengers.create(name: "john smith", age: 18)
-
       visit flights_path
-      save_and_open_page
+      
       expect(@flight4.departure_city).to appear_before(@flight3.departure_city)
       expect(@flight3.departure_city).to appear_before(@flight2.departure_city)
       expect(@flight2.departure_city).to appear_before(@flight1.departure_city)
